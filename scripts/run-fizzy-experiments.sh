@@ -60,7 +60,7 @@ fizzy -l DIET_TYPE -f JMI -i ../../DataCollections/AmericanGut/AmericanGut-Gut-D
 
 
 echo "Running NPFS-MIM; AG-DIET"
-npfs -l SEX -f MIM \
+npfs -l DIET_TYPE -f MIM \
   -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.txt -o tmp.txt \
   -n ${nsel} -c ${cores} -b ${boots} -s -r ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-NPFS-MIM.biom
@@ -69,7 +69,7 @@ cat tmp.txt | sed -e "s/[a-z]\_\_//g" -e "s/,,//g" -e 's/,\t/\t/g' > ../outputs/
 rm tmp.txt
 
 echo "Running NPFS-JMI; AG-DIET"
-npfs -l SEX -f JMI \
+npfs -l DIET_TYPE -f JMI \
   -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.txt -o tmp.txt \
   -n ${nsel} -c ${cores} -b ${boots} -s -r ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-NPFS-JMI.biom
