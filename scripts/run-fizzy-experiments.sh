@@ -23,12 +23,12 @@ nsel=50
 echo "Running MIM; AG-SEX"
 fizzy -l SEX -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.biom  \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.txt \
-  -o ../outputs/AmericanGut-Gut-Sex-Results-Fizzy-MIM.txt -n ${nsel} -s
+  -o ../outputs/AmericanGut-Gut-Sex-Results-Fizzy-MIM.biom -n ${nsel} -s --json
 
 echo "Running JMI; AG-SEX"
 fizzy -l SEX -f JMI -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.txt \
-  -o ../outputs/AmericanGut-Gut-Sex-Results-Fizzy-JMI.txt -n ${nsel} -s
+  -o ../outputs/AmericanGut-Gut-Sex-Results-Fizzy-JMI.biom -n ${nsel} -s --json
 
 echo "Running NPFS-MIM; AG-SEX"
 npfs -l SEX -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.biom \
@@ -51,12 +51,12 @@ rm tmp.txt
 echo "Running MIM; AG-DIET"
 fizzy -l DIET_TYPE -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.txt \
-  -o ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-Fizzy-MIM.txt -n ${nsel} -s
+  -o ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-Fizzy-MIM.biom -n ${nsel} -s --json
 
 echo "Running JMI; AG-DIET"
 fizzy -l DIET_TYPE -f JMI -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.txt \
-  -o ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-Fizzy-JMI.txt -n ${nsel} -s
+  -o ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-Fizzy-JMI.biom -n ${nsel} -s --json 
 
 
 echo "Running NPFS-MIM; AG-DIET"
@@ -79,13 +79,13 @@ rm tmp.txt
 
 echo "Running MIM; Caporaso-Sex"
 fizzy -l SEX -f MIM -i ../../DataCollections/Caporaso/caporaso-gut.biom \
-  -m ../../DataCollections/Caporaso/caporaso-gut.txt -o ../outputs/caporaso-gut-Results-Fizzy-MIM.txt \
-  -n ${nsel} -s
+  -m ../../DataCollections/Caporaso/caporaso-gut.txt -o ../outputs/caporaso-gut-Results-Fizzy-MIM.biom \
+  -n ${nsel} -s --json
 
 echo "Running JMI; Caporaso-Sex"
 fizzy -l SEX -f JMI -i ../../DataCollections/Caporaso/caporaso-gut.biom \
   -m ../../DataCollections/Caporaso/caporaso-gut.txt \
-  -o ../outputs/caporaso-gut-Results-Fizzy-JMI.txt -n ${nsel} -s
+  -o ../outputs/caporaso-gut-Results-Fizzy-JMI.biom -n ${nsel} -s --json
 
 echo "Running NPFS-MIM; Caporaso-Sex"
 npfs -l SEX -f MIM -i ../../DataCollections/Caporaso/caporaso-gut.biom \
