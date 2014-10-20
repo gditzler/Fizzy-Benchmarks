@@ -20,6 +20,9 @@ cores=20
 boots=250
 nsel=50
 
+###############################################################################
+###############################################################################
+###############################################################################
 echo "Running MIM; AG-SEX"
 fizzy -l SEX -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.biom  \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Sex.txt \
@@ -48,6 +51,9 @@ cat tmp.txt | sed -e "s/[a-z]\_\_//g" -e "s/,,//g" -e 's/,\t/\t/g' > ../outputs/
 rm tmp.txt
 
 
+###############################################################################
+###############################################################################
+###############################################################################
 echo "Running MIM; AG-DIET"
 fizzy -l DIET_TYPE -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.txt \
@@ -77,6 +83,10 @@ npfs -l DIET_TYPE -f JMI \
 cat tmp.txt | sed -e "s/[a-z]\_\_//g" -e "s/,,//g" -e 's/,\t/\t/g' > ../outputs/AmericanGut-Gut-Diet-OmniVegan-Results-NPFS-JMI.txt
 rm tmp.txt
 
+
+###############################################################################
+###############################################################################
+###############################################################################
 echo "Running MIM; Caporaso-Sex"
 fizzy -l SEX -f MIM -i ../../DataCollections/Caporaso/caporaso-gut.biom \
   -m ../../DataCollections/Caporaso/caporaso-gut.txt -o ../outputs/caporaso-gut-Results-Fizzy-MIM.biom \
@@ -102,3 +112,42 @@ npfs -l SEX -f JMI -i ../../DataCollections/Caporaso/caporaso-gut.biom \
 
 cat tmp.txt | sed -e "s/[a-z]\_\_//g" -e "s/,,//g" -e 's/,\t/\t/g' > ../outputs/caporaso-gut-Results-NPFS-JMI.txt
 rm tmp.txt
+
+
+
+
+
+
+###############################################################################
+###############################################################################
+###############################################################################
+echo "Running MIM; AG-DIET"
+fizzy -l DIET_TYPE -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+  -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt \
+  -o ../outputs/AmericanGut-Gut-Diet-OV-Results-Fizzy-MIM.biom -n ${nsel} -s --json
+
+echo "Running JMI; AG-DIET"
+fizzy -l DIET_TYPE -f JMI -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+  -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt \
+  -o ../outputs/AmericanGut-Gut-Diet-OV-Results-Fizzy-JMI.biom -n ${nsel} -s --json 
+
+
+echo "Running NPFS-MIM; AG-DIET"
+npfs -l DIET_TYPE -f MIM \
+  -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+  -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt -o tmp.txt \
+  -n ${nsel} -c ${cores} -b ${boots} -s -r ../outputs/AmericanGut-Gut-Diet-OV-Results-NPFS-MIM.biom
+
+cat tmp.txt | sed -e "s/[a-z]\_\_//g" -e "s/,,//g" -e 's/,\t/\t/g' > ../outputs/AmericanGut-Gut-Diet-OV-Results-NPFS-MIM.txt
+rm tmp.txt
+
+echo "Running NPFS-JMI; AG-DIET"
+npfs -l DIET_TYPE -f JMI \
+  -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+  -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt -o tmp.txt \
+  -n ${nsel} -c ${cores} -b ${boots} -s -r ../outputs/AmericanGut-Gut-Diet-OV-Results-NPFS-JMI.biom
+
+cat tmp.txt | sed -e "s/[a-z]\_\_//g" -e "s/,,//g" -e 's/,\t/\t/g' > ../outputs/AmericanGut-Gut-Diet-OV-Results-NPFS-JMI.txt
+rm tmp.txt
+
+
