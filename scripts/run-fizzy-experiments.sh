@@ -122,19 +122,19 @@ rm tmp.txt
 ###############################################################################
 ###############################################################################
 echo "Running MIM; AG-DIET"
-fizzy -l DIET_TYPE -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+fizzy -l DIET_TYPE -f MIM -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt \
   -o ../outputs/AmericanGut-Gut-Diet-OV-Results-Fizzy-MIM.biom -n ${nsel} -s --json
 
 echo "Running JMI; AG-DIET"
-fizzy -l DIET_TYPE -f JMI -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+fizzy -l DIET_TYPE -f JMI -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt \
   -o ../outputs/AmericanGut-Gut-Diet-OV-Results-Fizzy-JMI.biom -n ${nsel} -s --json 
 
 
 echo "Running NPFS-MIM; AG-DIET"
 npfs -l DIET_TYPE -f MIM \
-  -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+  -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt -o tmp.txt \
   -n ${nsel} -c ${cores} -b ${boots} -s -r ../outputs/AmericanGut-Gut-Diet-OV-Results-NPFS-MIM.biom
 
@@ -143,7 +143,7 @@ rm tmp.txt
 
 echo "Running NPFS-JMI; AG-DIET"
 npfs -l DIET_TYPE -f JMI \
-  -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OmniVegan.biom \
+  -i ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet.biom \
   -m ../../DataCollections/AmericanGut/AmericanGut-Gut-Diet-OV.txt -o tmp.txt \
   -n ${nsel} -c ${cores} -b ${boots} -s -r ../outputs/AmericanGut-Gut-Diet-OV-Results-NPFS-JMI.biom
 
