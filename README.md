@@ -1,10 +1,12 @@
 # About
 
-this 
+Collection of scripts and IPython notebooks for benchmarking the Fizzy feature selection tool for metagenomics. Make sure that you are using the lastest version of [Fizzy](https://github.com/EESI/Fizzy) prior to trying to reproduce the results found here. Note that Fizzy requires the [PyFeast](https://github.com/EESI/PyFeast) and [PyNPFS](https://github.com/EESI/py-npfs) modules to run.   
 
 # IPython Notebooks Links
 
-* TBD
+* [AG-Diet.ipynb](http://nbviewer.ipython.org/github/gditzler/Fizzy-Benchmarks/blob/master/notebooks/AG-Diet.ipynb)
+* [AG-Gender.ipynb](http://nbviewer.ipython.org/github/gditzler/Fizzy-Benchmarks/blob/master/notebooks/AG-Gender.ipynb)
+* [Caporaro-Gender.ipynb](http://nbviewer.ipython.org/github/gditzler/Fizzy-Benchmarks/blob/master/notebooks/Caporaso-Gender.ipynb)
 
 
 # License 
