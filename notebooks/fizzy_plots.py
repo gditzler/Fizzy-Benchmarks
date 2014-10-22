@@ -3,6 +3,8 @@ import json
 import numpy as np
 import pandas as pd
 import matplotlib.pylab as plt
+import csv
+import itertools
 
 __authors__ = "Gregory Ditzler"
 __copyright__ = "Copyright 2014, EESI Laboratory (Drexel University)"
@@ -14,17 +16,19 @@ def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups, delta=.00055)
     """
     boxplot()
     """
-    mapf = pd.read_csv(map_fp, sep="\t")[["#SampleID", label_col]]
+    #mapf = pd.read_csv(map_fp, sep="\t")[["#SampleID", label_col]]
+    mapf = load_map(map_fp)
     dobj = json.loads(open(fizzy_result_fp, "U").read())
-
     feats =  [d["metadata"]["taxonomy"] for d in dobj["rows"]]
-    sample_ids = np.array([np.float(d["id"]) for d in dobj["columns"]])
+    sample_ids = np.array([d["id"] for d in dobj["columns"]])
 
-    labels = []
-    for n in range(len(sample_ids)):
-        q = np.where(sample_ids[n] == mapf["#SampleID"])[0]
-        if len(q) > 0:
-            labels.append(mapf[label_col][q].tolist()[0])
+    #labels = []
+    #for n in range(len(sample_ids)):
+    #    q = np.where(sample_ids[n] == mapf["#SampleID"])[0]
+    #    if len(q) > 0:
+    #        labels.append(mapf[label_col][q].tolist()[0])
+    
+    labels = [mapf[sid] for sid in sample_ids]
     labels = np.array(labels)
     group1_data= np.array(dobj["data"])[np.where(labels == groups[0])]
     group2_data = np.array(dobj["data"])[np.where(labels == groups[1])]
@@ -69,17 +73,20 @@ def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups, delta=.00055)
 def feature_histograms(map_fp, fizzy_result_fp, label_col, groups):
     """
     """
-    mapf = pd.read_csv(map_fp, sep="\t")[["#SampleID", label_col]]
+    #mapf = pd.read_csv(map_fp, sep="\t")[["#SampleID", label_col]]
+    mapf = load_map(map_fp)
     dobj = json.loads(open(fizzy_result_fp, "U").read())
 
     feats =  [d["metadata"]["taxonomy"] for d in dobj["rows"]]
-    sample_ids = np.array([np.float(d["id"]) for d in dobj["columns"]])
+    sample_ids = np.array([d["id"] for d in dobj["columns"]])
 
-    labels = []
-    for n in range(len(sample_ids)):
-        q = np.where(sample_ids[n] == mapf["#SampleID"])[0]
-        if len(q) > 0:
-            labels.append(mapf[label_col][q].tolist()[0])
+    #labels = []
+    #for n in range(len(sample_ids)):
+    #    q = np.where(sample_ids[n] == mapf["#SampleID"])[0]
+    #    if len(q) > 0:
+    #        labels.append(mapf[label_col][q].tolist()[0])
+    
+    labels = [mapf[sid] for sid in sample_ids]
     labels = np.array(labels)
     group1_data = np.array(dobj["data"])[np.where(labels == groups[0])]
     group2_data = np.array(dobj["data"])[np.where(labels == groups[1])]
@@ -100,3 +107,46 @@ def feature_histograms(map_fp, fizzy_result_fp, label_col, groups):
     plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],'size':10})
     plt.xlim([0,.02])
     plt.rc('figure', **{'autolayout': True})
+
+
+
+def load_map(fn):
+  """
+  load a map file. this function does not have any dependecies on qiime"s
+  tools. the returned object is a dictionary of dictionaries. the dictionary
+  is indexed by the sample_ID and there is an added field for the the
+  available meta-data. each element in the dictionary is a dictionary with
+  the keys of the meta-data.
+  :fn - string containing the map file path
+  :meta_data - dictionary containin the mapping file information
+  """
+  meta_data = {}
+
+  with open(fn, "rb") as fh:
+   
+    first = fh.readline()
+
+    if first[0] != "#":
+      exit('Error: expected tab delimted field labels starting with # in map file on line 1')
+
+    first = first.strip('#')
+
+    reader = csv.DictReader(itertools.chain([first], fh), delimiter="\t")
+
+    try:
+      reader_arr = [row for row in reader]
+      headers = reader.fieldnames
+    except csv.Error as e:
+      exit("Error: map file contains error at line %d: %s" % (reader.line_num, e))
+
+    if "SampleID" not in headers:
+      exit("Error: no SampleID column in map file")
+
+    labels = filter(lambda label: label != "SampleID", headers)
+
+    for row in reader_arr:
+      meta_data[row["SampleID"]] = {}
+      for label in labels:
+        meta_data[row["SampleID"]][label] = row[label]
+
+    return meta_data
