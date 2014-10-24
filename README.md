@@ -1,6 +1,16 @@
 # About
 
-Collection of scripts and IPython notebooks for benchmarking the Fizzy feature selection tool for metagenomics. Make sure that you are using the lastest version of [Fizzy](https://github.com/EESI/Fizzy) prior to trying to reproduce the results found here. Note that Fizzy requires the [PyFeast](https://github.com/EESI/PyFeast) and [PyNPFS](https://github.com/EESI/py-npfs) modules to run.   
+Collection of scripts and IPython notebooks for benchmarking the Fizzy feature selection tool for metagenomics. Make sure that you are using the lastest version of [Fizzy](https://github.com/EESI/Fizzy) prior to trying to reproduce the results found here. Note that Fizzy requires the [PyFeast](https://github.com/EESI/PyFeast) and [PyNPFS](https://github.com/EESI/py-npfs) modules to run.  
+
+## Setting up the Environment
+
+Other than the software programs shown above, you'll need to download the data from one of our other GitHub repositories. 
+
+```bash
+git clone https://github.com/gditzler/Fizzy-Benchmarks.git
+git clone https://github.com/gditzler/DataCollections.git
+```
+Please refer to the individual repositories for configuring Fizzy, PyFEAST and PyNPFS. 
 
 # IPython Notebooks Links
 
