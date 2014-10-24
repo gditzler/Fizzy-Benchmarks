@@ -21,14 +21,13 @@ def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups, delta=.00055)
     dobj = json.loads(open(fizzy_result_fp, "U").read())
     feats =  [d["metadata"]["taxonomy"] for d in dobj["rows"]]
     sample_ids = np.array([d["id"] for d in dobj["columns"]])
-
-    #labels = []
-    #for n in range(len(sample_ids)):
-    #    q = np.where(sample_ids[n] == mapf["#SampleID"])[0]
-    #    if len(q) > 0:
-    #        labels.append(mapf[label_col][q].tolist()[0])
     
-    labels = [mapf[sid] for sid in sample_ids]
+    labels = []
+    for sids in sample_ids:
+        if mapf.has_key(sids):
+            labels.append(mapf[sids][label_col])
+    
+    #labels = [mapf[sid] for sid in sample_ids]
     labels = np.array(labels)
     group1_data= np.array(dobj["data"])[np.where(labels == groups[0])]
     group2_data = np.array(dobj["data"])[np.where(labels == groups[1])]
@@ -80,13 +79,11 @@ def feature_histograms(map_fp, fizzy_result_fp, label_col, groups):
     feats =  [d["metadata"]["taxonomy"] for d in dobj["rows"]]
     sample_ids = np.array([d["id"] for d in dobj["columns"]])
 
-    #labels = []
-    #for n in range(len(sample_ids)):
-    #    q = np.where(sample_ids[n] == mapf["#SampleID"])[0]
-    #    if len(q) > 0:
-    #        labels.append(mapf[label_col][q].tolist()[0])
+    labels = []
+    for sids in sample_ids:
+        if mapf.has_key(sids):
+            labels.append(mapf[sids][label_col])
     
-    labels = [mapf[sid] for sid in sample_ids]
     labels = np.array(labels)
     group1_data = np.array(dobj["data"])[np.where(labels == groups[0])]
     group2_data = np.array(dobj["data"])[np.where(labels == groups[1])]
@@ -123,14 +120,11 @@ def load_map(fn):
   meta_data = {}
 
   with open(fn, "rb") as fh:
-   
     first = fh.readline()
-
     if first[0] != "#":
       exit('Error: expected tab delimted field labels starting with # in map file on line 1')
 
     first = first.strip('#')
-
     reader = csv.DictReader(itertools.chain([first], fh), delimiter="\t")
 
     try:
