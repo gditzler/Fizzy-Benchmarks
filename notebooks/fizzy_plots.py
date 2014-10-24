@@ -12,7 +12,7 @@ __license__ = "GPL"
 __maintainer__ = "Gregory Ditzler"
 __email__ = "gregory.ditzler@gmail.com"
 
-def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups, delta=.00055):
+def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups):
     """
     boxplot()
     """
@@ -60,7 +60,10 @@ def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups, delta=.00055)
 
     #for n,f in enumerate(feats[:10]):
     #    fnew = f.replace("[","").replace("]","").replace('"',"").replace(" ","")
-    #    plt.text(20, .005-n*delta, "("+str(2*n)+") "+fnew,fontsize=19)
+    #    plt.text(20, offset-n*delta, "("+str(2*n)+") "+fnew,fontsize=19)
+    for n,f in enumerate(feats[:10]):
+      print 2*n,f.replace("[","").replace("]","").replace('"',"").replace(" ","")
+
 
     plt.title("Rel. Abundance of Top OTUs")
     plt.ylabel('rel. abundance', fontsize=18)
