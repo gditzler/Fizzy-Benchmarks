@@ -69,10 +69,12 @@ def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups):
     plt.ylabel('rel. abundance', fontsize=18)
     plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],'size':18})
     plt.rc('figure', **{'autolayout': True})
-    #plt.savefig("ag-mf-relabunbar.pdf")
+    
+    if output_fp != "":
+        plt.savefig(output_fp)
 
 
-def feature_histograms(map_fp, fizzy_result_fp, label_col, groups):
+def feature_histograms(map_fp, fizzy_result_fp, label_col, groups, output_fp):
     """
     """
     #mapf = pd.read_csv(map_fp, sep="\t")[["#SampleID", label_col]]
@@ -107,7 +109,9 @@ def feature_histograms(map_fp, fizzy_result_fp, label_col, groups):
     plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica'],'size':10})
     plt.xlim([0,.02])
     plt.rc('figure', **{'autolayout': True})
-
+    
+    if output_fp != "":
+        plt.savefig(output_fp)
 
 
 def load_map(fn):
