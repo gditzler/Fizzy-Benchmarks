@@ -1,12 +1,12 @@
 Features	Feature IDs	female (std)	male (std)	female (mean)	male (mean)
 Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroidesfragilis	2000	0.00182259809345	0.00130383815175	0.00144877962376	0.000491370202965
 Bacteria,Proteobacteria,Deltaproteobacteria,Desulfovibrionales,Desulfovibrionaceae,Desulfovibrio	51535	0.00252068553012	0.00118222978495	0.00426675555781	0.00220743790546
-Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Porphyromonadaceae	107252	5.24403136368e-07	0.000478135195886	2.22916117277e-05	0.000797582328984
 Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides,Bacteroidesfragilis	130663	0.0156630485743	0.0113210604475	0.0156376334365	0.00371563995037
 Bacteria,Bacteroidetes,Bacteroidia,Bacteroidales,Bacteroidaceae,Bacteroides	158660	0.0358183546073	0.022856314601	0.0763888248825	0.0424082513607
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Blautia	162651	0.00106714404631	0.000600907523346	0.00146772998664	0.000514223845464
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Clostridium	167365	1.00639435766e-05	0.00013835680658	2.53553358489e-05	0.00020908809514
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Clostridium	175401	2.30944586476e-06	4.96354629643e-05	2.25505572669e-05	7.7896660257e-05
+Bacteria,Verrucomicrobia,Verrucomicrobiae,Verrucomicrobiales,Verrucomicrobiaceae,Akkermansia	177339	0.00313570347201	0.00151972676575	0.00347494681292	0.000695218677847
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Clostridium	179460	0.0013785943601	0.000386673379875	0.00169418720952	0.000697852821388
 Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus	181961	4.59686411179e-06	0.0027223756352	2.32473320633e-05	0.00263884241193
 Bacteria,Firmicutes,Clostridia,Clostridiales	184983	0.00254181491286	0.00242989780688	0.00358990679105	0.00213363319393
@@ -22,7 +22,6 @@ Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Ruminococcus	203708
 Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Eubacterium	204889	3.14123336822e-06	0.00364066350454	2.28052690043e-05	0.00375600216215
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Clostridium	207570	0.00124760474396	0.000600148175835	0.00133103500182	0.000908052931639
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Clostridium	207580	0.000923244685585	0.000187883228422	0.00070896156746	7.31249595459e-05
-Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Oscillospira	207983	0.000123974498821	0.000519982800696	0.000124106968384	0.000922362368489
 Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae	208377	5.24403136368e-07	0.000471779217604	2.22916117277e-05	0.000497211251311
 Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae	208751	5.53962498722e-06	0.00012004473539	2.34811070817e-05	0.000165658308382
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae,Clostridium	211903	0.00140304448776	0.00231505171429	0.00144399374147	0.00265789773642
@@ -66,3 +65,4 @@ Bacteria,Firmicutes,Clostridia,Clostridiales,Veillonellaceae,Phascolarctobacteri
 Bacteria,Firmicutes,Clostridia,Clostridiales,Veillonellaceae,Phascolarctobacterium	590083	0.0021520799072	0.00130530072737	0.00457038362763	0.00184060081152
 Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae,Faecalibacterium	176115	2.09775010875e-06	0.000203781743077	2.2465773277e-05	0.000249385050525
 Bacteria,Firmicutes,Clostridia,Clostridiales,Lachnospiraceae	178513	9.48863629043e-05	1.47100334031e-06	0.000146089455622	2.19115170577e-05
+Bacteria,Firmicutes,Clostridia,Clostridiales,Ruminococcaceae	210793	5.24403136368e-07	7.27773571492e-05	2.22916117277e-05	0.00011246613711
