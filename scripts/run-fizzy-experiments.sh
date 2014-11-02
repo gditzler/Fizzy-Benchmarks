@@ -16,9 +16,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-cores=25
-boots=500
-nsel=200
+cores=20
+boots=250
+nsel=500
 
 ###############################################################################
 ###############################################################################

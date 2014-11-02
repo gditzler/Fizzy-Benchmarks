@@ -3,3 +3,4 @@ outputs/*.pdf
 *.pyc
 *ipynb_checkpoints/
 .Rproj.user
+tmp/
