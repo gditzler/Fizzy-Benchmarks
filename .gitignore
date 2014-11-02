@@ -4,3 +4,5 @@ outputs/*.pdf
 *ipynb_checkpoints/
 .Rproj.user
 tmp/
+output/
+
