@@ -31,6 +31,11 @@ def boxplot(map_fp, fizzy_result_fp, label_col, output_fp, groups):
     labels = np.array(labels)
     group1_data= np.array(dobj["data"])[np.where(labels == groups[0])]
     group2_data = np.array(dobj["data"])[np.where(labels == groups[1])]
+    
+    print len(np.sum(group1_data, axis=1))
+    print len(np.sum(group2_data, axis=1))
+    print len(np.sum(group2_data, axis=1))+len(np.sum(group1_data, axis=1))
+    print len(labels)
 
     def set_box_color(bp, color):
         plt.setp(bp['boxes'], color=color)
